@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>OpenBobX</title>
+</head>
+<body>
+	<xbobprint>Hello, World!<br /></xbobprint>
+	<xbobprint>Setting variable "example" to "value"... </xbobprint>
+	<xbobdefine example="value" >
+	<xbobprint>DONE<br /></xbobprint>
+	<xbobprint>Checking if variable "example" is set to "value"... </xbobprint>
+	<xbobif condition="$example == 'value'">
+		<xbobprint>example <b>is</b> set to value!</xbobprint>
+	</xbobif>
+</body>
+</html>
