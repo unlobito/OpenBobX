@@ -6,6 +6,7 @@ It's intended as a joke and probably should not be used to make any production a
 Supported Functions
 -------------------
 - xbobprint
+- xbobvariable
 - xbobdefine
 - xbobif/xbobendif
 

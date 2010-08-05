@@ -30,6 +30,9 @@ if (!file_exists($_BOBX['page'].'.bobx')) { // If the page does not exist...
 /* Load BobX file */
 $_BOBX['rawfile'] = file_get_contents($_BOBX['page'].'.bobx');
 
+/* Tell PHP to use the custom error handler */
+ini_set('error_prepend_string', 'xboberrorcode'); // Just in case the developer messes up, yell at the user!
+
 /* Start parsing the file */
 $_BOBX['parsedfile'] = $_BOBX['rawfile'];
 
@@ -40,7 +43,10 @@ if (!$_BOBX['enablephp']) { // If normal PHP is off
 }
 
 // Parse xbobprint tags
-$_BOBX['parsedfile'] = preg_replace("-\<xbobprint\>(.*)\<\/xbobprint\>-", "<?php sleep(1); echo '$1'; ?>", $_BOBX['parsedfile']);
+$_BOBX['parsedfile'] = preg_replace("-\<xbobprint\>(.*)\<\/xbobprint\>-", "<?php sleep(1);?>$1", $_BOBX['parsedfile']);
+
+// Parse xbobvariable tags
+$_BOBX['parsedfile'] = preg_replace("-\<xbobvariable\>(.*)\<\/xbobvariable\>-", "<?php echo \$$1; ?>", $_BOBX['parsedfile']);
 
 // Parse xbobdefine tags
 $_BOBX['parsedfile'] = preg_replace("-\<xbobdefine (.*)=\"(.*)\" \>-", "<?php \$$1 = \"$2\"; sleep(2); ?>", $_BOBX['parsedfile']);

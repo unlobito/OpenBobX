@@ -12,6 +12,7 @@
 	<xbobprint>Checking if variable "example" is set to "value"... </xbobprint>
 	<xbobif condition="$example == 'value'">
 		<xbobprint>example <b>is</b> set to value!</xbobprint>
-	</xbobif>
+	</xbobif><br />
+	<xbobprint>The value of example is still <xbobvariable>example</xbobvariable></xbobprint>
 </body>
 </html>
